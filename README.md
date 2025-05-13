@@ -107,3 +107,51 @@ This forecast aimed to use historical service data from the DMARC pantry system 
 - Check that your column names match those used in the code.
 - Run the code.
 - By the end, you'll have a trained model, performance metrics, and several plots you can use to understand and explain what drives people to return.
+
+
+
+
+
+# DMARC Predict Returning Families 2024
+## Overview 
+The purpose of this predictive model is to share details of the types of families who will be returning to the pantry in the upcoming year. We would expect that DMARC could use this information to support these families with resources from the pantry. The reason I decided this was important is that I would rather be supporting families in different ways, if possible, to begin seeing them less and less, until they are no longer coming to the pantry. I understand that DMARC does not have extra cash lying around but I would be interested in looking into some external resources to provide to these families.
+
+# Objectives
+- Clean and transform raw pantry service data for modeling.
+- Predict whether a family will return in 2024 based on their past visit history.
+- Visualize the distribution of likelihood of returning families.
+- Understand the variables' influence on the end resulting prediction
+
+## Data
+- **Source:** Internal pantry service dataset (2018-2023) from DMARC.
+- **Format:** CSV
+- **File name:** drake_export_v8_2024-02-13_100754_rev2_nolatlong.csv
+- **Key variables:** 
+	- `family_type`: family members in the home
+	- `race`: established by family member
+	- `ethnicity`: established by family member
+	- `served_year`: year of visit by family to the pantry
+		- `year_2023`, `year_2022`, `year_2021`, `year_2020`, `year_2019`, `year_2018`
+		  - If a family visited one or more times in a year, the year_20## columns were 1, while no visits was represented by a 0. 
+
+## Key Features 
+
+- Random Forest Model
+	- Predicts if a family who has already been to the pantry will return again in 2024 
+	- Uses predictor variables by family type and years visited
+
+
+- Visuals
+	- Plot of the predicted family returns in 2023 - training data set for random forest model
+	- Evaluate accuracy of the random forest model
+	- Plot of the predicted family returns in 2024 
+	- Plot of predicted family type of returning families in 2024
+	- Plot zoomed in on just the families who are expected to return in 2024, broken out by family type
+	- Table of family types' expected likelihood of returning to the pantry
+	- Plot with family type consolidated if children were involved
+	- Table of family types' (where children were consolidated if involved) expected likelihood of returning to the pantry
+
+## How to run
+- Open the file titled DMARC Predict Returning Families.R
+- Install all the packages listed
+- Run entire code file 
